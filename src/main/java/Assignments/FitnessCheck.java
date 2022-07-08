@@ -25,7 +25,7 @@ public class FitnessCheck extends FitnessUserDetails {
     public static void validation(String name,byte age,byte weight,boolean canRun5km) {
         int minAge=15;
         int maxAge=40;
-int temp =0;
+int temp1 =0;
         if (age > minAge && age < maxAge) {
             if (weight >30 && weight< 70) {
                 if ( canRun5km ) {
