@@ -8,6 +8,10 @@ public class MyFirstClass {
 
     }
 
+    public void classM(){
+
+    }
+
 
 
 
