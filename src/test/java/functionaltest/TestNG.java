@@ -1,4 +1,4 @@
-package testing;
+package functionaltest;
 
 import org.testng.annotations.Test;
 

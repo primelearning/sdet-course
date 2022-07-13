@@ -1,4 +1,4 @@
-package testing;
+package functionaltest;
 
 public class SomeFileToTest {
 }
