@@ -10,23 +10,25 @@ import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import pageobjects.LoginPage;
+import static utilities.LoadConfig.*;
+import utilities.ReadFiles;
 
-public class LoginPageTest extends BaseTest {
+public class LoginPageTest extends BaseTest{
 
 
 
     @Test
-    private void should_Be_Able_To_Login_With_ValidUsernameAndValidPassword(){
+    private void should_Be_Able_To_Login_With_ValidUsernameAndValidPassword()  {
         //Arrange
         LoginPage loginPage = new LoginPage(driver);
 
         //Act
-        loginPage.enterUserName("standard_user");
-        loginPage.enterPassword("secret_sauce");
+        loginPage.enterUserName(FRAMEWORK_PROPERTIES.getProperty("USERNAME"));
+        loginPage.enterPassword(FRAMEWORK_PROPERTIES.getProperty("USERNAME"));
         loginPage.clickLoginBtn();
 
         //Assert
-        String expectedUrl ="https://www.saucedemo.com/inventory.html";
+        String expectedUrl =FRAMEWORK_PROPERTIES.getProperty("PRODUCT_LIST_URL");
         String actualUrl= driver.getCurrentUrl();
         Assert.assertEquals(actualUrl,expectedUrl);
 
