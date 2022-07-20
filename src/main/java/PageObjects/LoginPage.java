@@ -16,7 +16,6 @@ public final class LoginPage {
     String nextButton="//button[@type='submit']";
 
 
-
     public void clickLoginLink(){
         localDriver.findElement(By.xpath(logInLink)).click();
     }
