@@ -19,8 +19,7 @@ public class LoginPageTest extends BaseTest {
     login.clickOnNext();
     login.enterPassword("TestPractice@2");
     login.clickOnNext();
-   // String loginVerification=driver.findElement(By.xpath("//button[@data-qa='header-HOME-tab-button']")).getText();
-    //System.out.println(loginVerification);
+
 
     
 }
