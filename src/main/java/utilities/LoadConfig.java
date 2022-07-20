@@ -2,7 +2,7 @@ package utilities;
 
 import java.util.Properties;
 
-public class LoadConfig {
+public final class LoadConfig {
     private LoadConfig(){}
     public static Properties FRAMEWORK_PROPERTIES;
     public static Properties ENV_PROPERTIES;

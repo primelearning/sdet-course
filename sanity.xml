@@ -1,9 +1,10 @@
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
 
 <suite name="Sanity Suite" >
-    <test name="functional">
+    <test name="functional" parallel="methods" thread-count="4">
         <classes>
             <class name="functionaltest.LoginPageTest"/>
+            <class name="functionaltest.LoginPage2Test"/>
         </classes>
     </test>
 </suite>

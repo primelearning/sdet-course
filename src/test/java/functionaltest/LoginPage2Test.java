@@ -9,7 +9,7 @@ import static utilities.LoadConfig.ENV_PROPERTIES;
 import static utilities.LoadConfig.FRAMEWORK_PROPERTIES;
 
 
-public class LoginPageTest extends BaseTest {
+public class LoginPage2Test extends BaseTest {
 
 
     @Test
