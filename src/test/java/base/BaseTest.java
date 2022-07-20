@@ -1,14 +1,10 @@
 package base;
 
-import io.github.bonigarcia.wdm.WebDriverManager;
+import manager.BrowserFactory;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import utilities.LoadConfig;
-import utilities.ReadFiles;
-
-import java.util.Properties;
 
 public class BaseTest {
 
@@ -17,9 +13,7 @@ public class BaseTest {
 
     @BeforeMethod
     public void setup(){
-        WebDriverManager.chromedriver().setup();
-        driver = new ChromeDriver();
-        // chrome / firefox - default
+        driver=BrowserFactory.getBrowser(LoadConfig.FRAMEWORK_PROPERTIES.getProperty("BROWSER_NAME"));
         driver.get(LoadConfig.FRAMEWORK_PROPERTIES.getProperty("BASE_URL"));
     }
 
