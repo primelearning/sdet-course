@@ -1,5 +1,7 @@
 package Base;
 
+import Factory.BrowserFactory;
+import Utilities.LoadConfig;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -13,8 +15,9 @@ public class BaseTest {
 
     @BeforeMethod
      public void loginSetup(){
-        WebDriverManager.chromedriver().setup();
-         driver = new ChromeDriver();
+
+       // WebDriverManager.chromedriver().setup();
+         driver = BrowserFactory.getDriver(LoadConfig.FRAMEWORK_PROPERTIES.getProperty("BROWSER-NAME" ));
     }
     @AfterTest
     public void cleanup(){
