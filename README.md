@@ -22,6 +22,9 @@
 - Design pattern
   - Page object Model
   - Page Factory model
+  - singleton pattern
+    - Threadlocal
+    - getInstance
 #### TestNG
 - Annotations like @Test, @BeforeTest/AfterTest, @Before/AfterMethods
 - DataProvider, parallel 
@@ -41,8 +44,10 @@
 - Dependency management using maven
 - Running Parallel Tests - pending
 - HTML Report generation - pending
+  - screenshot on failure
 - CI/CD compatible - pending
 - Readable and easily maintainable code
+- Password encryption
 ### Setting up framework
 - Download the code from this repository link (main/master branch) : 
 

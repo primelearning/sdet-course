@@ -2,8 +2,8 @@ package utilities;
 
 import java.util.Properties;
 
-public final class LoadConfig {
-    private LoadConfig(){}
+public final class ConfigManager {
+    private ConfigManager(){}
     public static Properties FRAMEWORK_PROPERTIES;
     public static Properties ENV_PROPERTIES;
 

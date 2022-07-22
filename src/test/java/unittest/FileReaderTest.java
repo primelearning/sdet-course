@@ -2,24 +2,17 @@ package unittest;
 
 import org.testng.Assert;
 import org.testng.annotations.Test;
-import utilities.LoadConfig;
-import utilities.ReadFiles;
-
-
-import java.io.FileReader;
-import java.util.Properties;
+import utilities.ConfigManager;
 
 public class FileReaderTest {
 
     @Test
     public void testPropertiesFile(){
-        System.out.println(LoadConfig.FRAMEWORK_PROPERTIES.get("BASE_URL"));
-//        Assert.assertNotNull(properties);
+        Assert.assertEquals(ConfigManager.FRAMEWORK_PROPERTIES.get("BASE_URL"),"https://www.saucedemo.com/");
     }
     @Test
     public void testPropertiesFileForEnv(){
-        System.out.println(LoadConfig.ENV_PROPERTIES.get("USERNAME"));
-//        Assert.assertNotNull(properties);
+        Assert.assertNotNull(ConfigManager.ENV_PROPERTIES.get("USERNAME"),"standard_user");
     }
 
 

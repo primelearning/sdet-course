@@ -15,6 +15,7 @@
         <testng-version>7.6.1</testng-version>
         <drivermanager-version>5.2.1</drivermanager-version>
         <surefire.version>3.0.0-M7</surefire.version>
+        <extent-version>5.0.9</extent-version>
     </properties>
 
     <build>
@@ -36,7 +37,6 @@
             <groupId>org.testng</groupId>
             <artifactId>testng</artifactId>
             <version>${testng-version}</version>
-            <scope>test</scope>
         </dependency>
         <dependency>
             <groupId>org.seleniumhq.selenium</groupId>
@@ -48,6 +48,12 @@
             <artifactId>webdrivermanager</artifactId>
             <version>${drivermanager-version}</version>
         </dependency>
+        <dependency>
+            <groupId>com.aventstack</groupId>
+            <artifactId>extentreports</artifactId>
+            <version>${extent-version}</version>
+        </dependency>
+
 
 
     </dependencies>

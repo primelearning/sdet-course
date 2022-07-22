@@ -18,9 +18,9 @@ public final class LoginPage {
 
     //Step2: Identify all locators
     //Locators
-    String usernameTxt = "#user-name";
+    private String usernameTxt = "#user-name";
     //Using By Type as Locator
-    By passwordTxt = By.cssSelector("#password");
+    private By passwordTxt = By.cssSelector("#password");
     //Using Page Factory method
     @FindBy(css = "#login-button") WebElement loginBtn;
     @FindBy(xpath = "//*[@id=\"login_button_container\"]/div/form/div[3]/h3")

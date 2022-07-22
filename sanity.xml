@@ -1,6 +1,9 @@
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
 
 <suite name="Sanity Suite" >
+    <listeners>
+        <listener class-name="reporting.ExtentListener"></listener>
+    </listeners>
     <test name="functional" parallel="methods" thread-count="4">
         <classes>
             <class name="functionaltest.LoginPageTest"/>
