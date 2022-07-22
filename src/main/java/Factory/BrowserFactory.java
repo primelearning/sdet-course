@@ -13,11 +13,11 @@ public final class BrowserFactory {
 
     }
 
-    public static WebDriver getDriver(String browserName){
-        return setDriver(browserName);
+    public static WebDriver getBrowser(String browserName){
+        return setBrowser(browserName);
     }
 
-    private static WebDriver setDriver(String browserName){
+    private static WebDriver setBrowser(String browserName){
         WebDriver driver;
         String browser=browserName.toLowerCase();
         switch (browser) {
