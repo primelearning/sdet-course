@@ -16,6 +16,7 @@
         <drivermanager-version>5.2.1</drivermanager-version>
         <surefire.version>3.0.0-M7</surefire.version>
         <extent-version>5.0.9</extent-version>
+        <log4j-version>2.18.0</log4j-version>
     </properties>
 
     <build>
@@ -52,6 +53,11 @@
             <groupId>com.aventstack</groupId>
             <artifactId>extentreports</artifactId>
             <version>${extent-version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.logging.log4j</groupId>
+            <artifactId>log4j-core</artifactId>
+            <version>${log4j-version}</version>
         </dependency>
 
 

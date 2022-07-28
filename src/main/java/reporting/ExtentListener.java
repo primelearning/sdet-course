@@ -2,19 +2,23 @@ package reporting;
 
 import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.Status;
+import factory.BrowserFactory;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.testng.ITestContext;
 import org.testng.ITestListener;
 import org.testng.ITestResult;
 import static reporting.ExtentFactory.*;
 
 public class ExtentListener implements ITestListener {
+    private static Logger LOG = LogManager.getLogger(ExtentListener.class);
     private ExtentReports extentReports;
 //    private ExtentTest extentTest;
 
     @Override
     public void onStart(ITestContext context) {
-        System.out.println("======TEST SUITE STARTED =========");
-        System.out.println("=== INITIALIZING REPORT=====");
+        LOG.info("======TEST SUITE STARTED =========");
+        LOG.info("=== INITIALIZING REPORT=====");
         extentReports = ExtentReportManager.initialize();
     }
 

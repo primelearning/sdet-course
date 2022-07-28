@@ -1,10 +1,13 @@
 package factory;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.WebDriver;
 
 import java.util.Objects;
 
 public final class DriverFactory {
+    private static Logger LOG = LogManager.getLogger(DriverFactory.class);
     private DriverFactory(){}
 
     /**
@@ -14,6 +17,7 @@ public final class DriverFactory {
 
     public static void setDriver(WebDriver driver){
         if(Objects.nonNull(driver)){
+            LOG.info("Driver is Set.");
             threadLocalDriver.set(driver);
         }else {
             throw new RuntimeException("Driver is null, check for BaseTest class");
@@ -25,5 +29,6 @@ public final class DriverFactory {
     public static void closeBrowser(){
         threadLocalDriver.get().quit();
         threadLocalDriver.remove();
+        LOG.info("Driver is terminated");
     }
 }
