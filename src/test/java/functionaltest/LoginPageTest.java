@@ -14,6 +14,7 @@ import static utilities.ConfigManager.FRAMEWORK_PROPERTIES;
 
 public class LoginPageTest extends BaseTest {
 
+
     @Test(groups = {"regression","sanity","login"})
     private void should_Be_Able_To_Login_With_ValidUsernameAndValidPassword1()  {
         //Arrange
