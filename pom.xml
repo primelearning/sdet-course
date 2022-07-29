@@ -7,19 +7,42 @@
     <groupId>org.example</groupId>
     <artifactId>Maven</artifactId>
     <version>1.0-SNAPSHOT</version>
+    <properties>
+        <maven.compiler.source>17</maven.compiler.source>
+        <maven.compiler.target>17</maven.compiler.target>
+        <selenium-version>4.3.0</selenium-version>
+        <testng-version>7.6.1</testng-version>
+        <drivermanager-version>5.2.0</drivermanager-version>
+        <surefireplugin-version>3.0.0-M7</surefireplugin-version>
 
+    </properties>
     <dependencies>
         <dependency>
             <groupId>org.seleniumhq.selenium</groupId>
             <artifactId>selenium-java</artifactId>
-            <version>4.3.0</version>
+            <version>${selenium-version}</version>
         </dependency>
-
+        <dependency>
+            <groupId>org.testng</groupId>
+            <artifactId>testng</artifactId>
+            <version>${testng-version}</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>io.github.bonigarcia</groupId>
+            <artifactId>webdrivermanager</artifactId>
+            <version>${drivermanager-version}</version>
+        </dependency>
     </dependencies>
-
-    <properties>
-        <maven.compiler.source>17</maven.compiler.source>
-        <maven.compiler.target>17</maven.compiler.target>
-    </properties>
-
+    <build>
+        <pluginManagement>
+            <plugins>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-surefire-plugin</artifactId>
+                    <version>${surefireplugin-version}</version>
+                </plugin>
+            </plugins>
+        </pluginManagement>
+    </build>
 </project>
