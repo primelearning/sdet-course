@@ -8,8 +8,7 @@ import org.testng.annotations.Test;
 import pageobjects.LoginPage;
 import static reporting.ExtentFactory.getExtentTest;
 
-import static utilities.ConfigManager.ENV_PROPERTIES;
-import static utilities.ConfigManager.FRAMEWORK_PROPERTIES;
+import static configurations.ConfigManager.ENV_PROPERTIES;
 
 
 public class LoginPageTest extends BaseTest {
@@ -29,7 +28,7 @@ public class LoginPageTest extends BaseTest {
         loginPage.clickLoginBtn();
 
         //Assert
-        String expectedUrl = FRAMEWORK_PROPERTIES.getProperty("PRODUCT_LIST_URL");
+        String expectedUrl = ENV_PROPERTIES.getProperty("PRODUCT_LIST_URL");
         String actualUrl = getDriver().getCurrentUrl();
         Assert.assertEquals(actualUrl, expectedUrl);
 

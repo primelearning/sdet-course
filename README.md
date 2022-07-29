@@ -39,12 +39,18 @@
 
 ### Framework Features
 - Multiple environment handling via default or env variable 
+  - Reading different properties files for configurations
 - Supports multiple browsers via default or env variable - pending
+  - Browser name, test suite name , environment name can be passed via env variable or else it will pick up from properties file
 - Managing Tests and Suites via TestNG - pending
+  - Different testng.xml files for different suites
+  - Controlling .xml file to pick via environment variable via pom.xml
 - Dependency management using maven
-- Running Parallel Tests - pending
-- HTML Report generation - pending
+- Running Parallel Tests
+  - Run parallel by classes or methods
+- HTML Report generation
   - screenshot on failure
+  - generate Beautiful HTML report, using Extent Report library
 - CI/CD compatible - pending
 - Readable and easily maintainable code
 - Password encryption
@@ -61,7 +67,14 @@
 - Click on Run button beside method (To run individual Test) or beside class to runn all Tests
 #### via xml suite
 - Run sanity.xml
+- Using tags / groups
+  - Running all sanity
+    - mvn clean test -DtagName
+  - Running all regression
+    - mvn clean test -DtagName
+  - Running via feature tag
+    - mvn clean test -DtagName
 #### via maven command line
 - Open terminal and navigate to root folder of project
-- ````mvn clean test````
+- ``` mvn clean test -DBROWSER_NAME=chrome -DIS_HEADLESS=true -DENV=QA```
 

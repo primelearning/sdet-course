@@ -3,7 +3,7 @@ package reporting;
 import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.reporter.ExtentSparkReporter;
 import com.aventstack.extentreports.reporter.configuration.Theme;
-import utilities.ConfigManager;
+import configurations.ConfigManager;
 
 public final class ExtentReportManager {
     private ExtentReportManager(){}
@@ -21,9 +21,9 @@ public final class ExtentReportManager {
         htmlReporter.config().setReportName(ConfigManager.FRAMEWORK_PROPERTIES.getProperty("REPORT_NAME"));
 
         //Set TEST ENV info
-        extentReports.setSystemInfo("Execution Environment",ConfigManager.FRAMEWORK_PROPERTIES.getProperty("TEST_ENV"));
+        extentReports.setSystemInfo("Execution Environment",ConfigManager.FRAMEWORK_PROPERTIES.getProperty("ENV"));
         extentReports.setSystemInfo("Test Browser",ConfigManager.FRAMEWORK_PROPERTIES.getProperty("BROWSER_NAME"));
-        extentReports.setSystemInfo("TEST OS",ConfigManager.FRAMEWORK_PROPERTIES.getProperty("TEST_OS"));
+        extentReports.setSystemInfo("TEST OS",ConfigManager.FRAMEWORK_PROPERTIES.getProperty("OS"));
 
         //Attaching the HTML reporter with extentReport
         extentReports.attachReporter(htmlReporter);

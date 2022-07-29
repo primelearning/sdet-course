@@ -11,7 +11,6 @@ import utilities.SeleniumUtils;
 
 
 public final class BrowserFactory {
-//    private final static Logger LOGGER =  Logger.getLogger(BrowserFactory.class.getName());
    private static Logger LOG = LogManager.getLogger(BrowserFactory.class);
     private BrowserFactory(){}
 
@@ -25,7 +24,7 @@ public final class BrowserFactory {
         if(browserName.equalsIgnoreCase("chrome")){
             WebDriverManager.chromedriver().setup();
             if(isHeadless){
-                driver = new ChromeDriver(SeleniumUtils.getHeadlessOptions(browserName));
+                driver = new ChromeDriver(SeleniumUtils.getHeadlessBrowserOptions(browserName));
                 LOG.info("Getting the chrome Browser with headless mode.");
             }else{
                 driver = new ChromeDriver();

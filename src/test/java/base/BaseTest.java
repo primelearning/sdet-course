@@ -6,10 +6,9 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
-import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.Listeners;
 import reporting.ExtentListener;
-import utilities.ConfigManager;
+import configurations.ConfigManager;
 
 @Listeners(ExtentListener.class)
 public class BaseTest {
@@ -17,12 +16,9 @@ public class BaseTest {
 
     @BeforeMethod(alwaysRun = true)
     public void setup(){
-        String BROWSERNAME=ConfigManager.FRAMEWORK_PROPERTIES.getProperty("BROWSER_NAME");
-        boolean HEADLESSMODE=Boolean.parseBoolean(ConfigManager.FRAMEWORK_PROPERTIES.getProperty("HEADLESS_MODE"));
-
-        DriverFactory.setDriver(BrowserFactory.getBrowser(BROWSERNAME,HEADLESSMODE));
-        DriverFactory.getDriver().get(ConfigManager.FRAMEWORK_PROPERTIES.getProperty("BASE_URL"));
-        LOG.info("Webdriver is initialized.");
+        DriverFactory.setDriver(BrowserFactory.getBrowser(ConfigManager.BROWSER_NAME,ConfigManager.IS_HEADLESS));
+        DriverFactory.getDriver().get(ConfigManager.ENV_PROPERTIES.getProperty("BASE_URL"));
+        LOG.info("WebDriver is initialized.");
     }
 
     @AfterMethod(alwaysRun = true)

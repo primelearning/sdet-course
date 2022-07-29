@@ -1,18 +1,15 @@
 package utilities;
 
 import org.openqa.selenium.PageLoadStrategy;
+import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeOptions;
 
 public final class SeleniumUtils {
     private SeleniumUtils(){}
-    public static void getTextFromElement(WebElement element){
-
-    }
 
 
-    public static ChromeOptions getHeadlessOptions(String browserName){
+    public static ChromeOptions getHeadlessBrowserOptions(String browserName){
         ChromeOptions options ;
         if(browserName.equalsIgnoreCase("chrome")){
             options = new ChromeOptions();
