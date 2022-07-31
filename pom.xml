@@ -18,6 +18,7 @@
         <extent-version>5.0.9</extent-version>
         <log4j-version>2.18.0</log4j-version>
         <lombok>1.18.24</lombok>
+        <faker>1.0.2</faker>
     </properties>
 
     <build>
@@ -66,6 +67,13 @@
             <version>${lombok}</version>
             <scope>provided</scope>
         </dependency>
+        <!-- https://mvnrepository.com/artifact/com.github.javafaker/javafaker -->
+        <dependency>
+            <groupId>com.github.javafaker</groupId>
+            <artifactId>javafaker</artifactId>
+            <version>${faker}</version>
+        </dependency>
+
 
 
 
