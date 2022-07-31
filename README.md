@@ -60,6 +60,7 @@
 ### How to write functional Test cases
 
 ### How to write unit Test cases
+- To ensure framework features are not broken
 
 
 ### How to run Testcases
