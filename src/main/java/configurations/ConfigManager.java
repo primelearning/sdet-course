@@ -28,10 +28,10 @@ public final class ConfigManager {
     private static void getSystemVariables(){
         if(Objects.nonNull(System.getProperty("ENV"))){
             ENV=System.getProperty("ENV");
-            LOG.info("Environment value is set from Environment Variables.");
+            LOG.info("ENV value is set from Environment Variables.");
         }else {
             ENV=FRAMEWORK_PROPERTIES.getProperty("ENV");
-            LOG.info("Environment value is set from frameworkconfig.properties.");
+            LOG.info("ENV value is set from frameworkconfig.properties.");
         }
 
         if(Objects.nonNull(System.getProperty("BROWSER_NAME"))){
