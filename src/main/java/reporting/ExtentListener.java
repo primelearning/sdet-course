@@ -1,13 +1,16 @@
 package reporting;
 
 import com.aventstack.extentreports.ExtentReports;
+import com.aventstack.extentreports.MediaEntityBuilder;
 import com.aventstack.extentreports.Status;
-import factory.BrowserFactory;
+import factory.DriverFactory;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.testng.ITestContext;
 import org.testng.ITestListener;
 import org.testng.ITestResult;
+import utilities.SeleniumUtils;
+
 import static reporting.ExtentFactory.*;
 
 public class ExtentListener implements ITestListener {
@@ -37,8 +40,9 @@ public class ExtentListener implements ITestListener {
     public void onTestFailure(ITestResult result) {
         getExtentTest().fail("Test case is Failed");
         getExtentTest().log(Status.FAIL,result.getThrowable());
-        // TODO: screenshot method will be called here
-
+        String base64ScreenshotImage=SeleniumUtils.takeScreenShotAsBase64(DriverFactory.getDriver());
+        getExtentTest().info("Click below base64Img icon to view Screenshot");
+        getExtentTest().fail(MediaEntityBuilder.createScreenCaptureFromBase64String(base64ScreenshotImage).build());
     }
 
     @Override

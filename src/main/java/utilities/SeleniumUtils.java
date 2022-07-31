@@ -1,5 +1,6 @@
 package utilities;
 
+import org.openqa.selenium.OutputType;
 import org.openqa.selenium.PageLoadStrategy;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
@@ -26,4 +27,10 @@ public final class SeleniumUtils {
         return options;
     }
 
+    public static String takeScreenShotAsBase64(WebDriver driver){
+        //JAVA Typecasting concept, we are downcasting WebDriver class with TakeScreenshot Interface
+        TakesScreenshot screenshotShot = ((TakesScreenshot) driver);
+
+        return screenshotShot.getScreenshotAs(OutputType.BASE64);
+    }
 }
