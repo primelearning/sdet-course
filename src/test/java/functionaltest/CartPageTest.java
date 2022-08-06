@@ -1,16 +1,13 @@
 package functionaltest;
 
-import base.BaseTest;
-import factory.DriverFactory;
-import org.testng.Assert;
+import base.BaseTestUI;
 import org.testng.annotations.Test;
 import pageobjects.LoginPage;
-import pageobjects.ProductsPage;
 
 import static factory.DriverFactory.getDriver;
 
 
-public class CartPageTest extends BaseTest {
+public class CartPageTest extends BaseTestUI {
 
 
     @Test

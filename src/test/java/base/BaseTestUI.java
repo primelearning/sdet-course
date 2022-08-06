@@ -11,8 +11,8 @@ import reporting.ExtentListener;
 import configurations.ConfigManager;
 
 @Listeners(ExtentListener.class)
-public class BaseTest {
-    private static Logger LOG = LogManager.getLogger(BaseTest.class);
+public class BaseTestUI {
+    private static Logger LOG = LogManager.getLogger(BaseTestUI.class);
 
     @BeforeMethod(alwaysRun = true)
     public void setup(){
