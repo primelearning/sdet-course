@@ -1,0 +1,18 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
+
+<suite name="Sanity Suite" >
+
+    <test name="functional-api" parallel="methods" thread-count="4">
+        <groups>
+            <run>
+<!--                <include name="sanity"/>-->
+<!--                <exclude name="sanity"/>-->
+            </run>
+        </groups>
+        <classes>
+            <class name="apitests.CreateBookingTest"/>
+            <class name="apitests.GetBookingTest"/>
+            <class name="apitests.UpdateBookingTest"/>
+        </classes>
+    </test>
+</suite>
