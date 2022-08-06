@@ -1,6 +1,6 @@
 package functionaltest;
 
-import base.BaseTest;
+import base.BaseTestUI;
 import static factory.DriverFactory.getDriver;
 
 import dataproviders.LoginDataProvider;
@@ -14,7 +14,7 @@ import static reporting.ExtentFactory.getExtentTest;
 import static configurations.ConfigManager.ENV_PROPERTIES;
 
 
-public class LoginPageTest extends BaseTest {
+public class LoginPageTest extends BaseTestUI {
 
 
     @Test(groups = {"regression","sanity","login"})

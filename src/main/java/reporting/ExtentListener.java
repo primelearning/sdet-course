@@ -1,9 +1,12 @@
 package reporting;
 
+import apiutils.ApiLogger;
 import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.MediaEntityBuilder;
 import com.aventstack.extentreports.Status;
+import com.aventstack.extentreports.markuputils.MarkupHelper;
 import factory.DriverFactory;
+import io.restassured.RestAssured;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.testng.ITestContext;
@@ -11,12 +14,14 @@ import org.testng.ITestListener;
 import org.testng.ITestResult;
 import utilities.SeleniumUtils;
 
+import java.util.Arrays;
+import java.util.Objects;
+
 import static reporting.ExtentFactory.*;
 
 public class ExtentListener implements ITestListener {
     private static Logger LOG = LogManager.getLogger(ExtentListener.class);
     private ExtentReports extentReports;
-//    private ExtentTest extentTest;
 
     @Override
     public void onStart(ITestContext context) {
@@ -32,17 +37,23 @@ public class ExtentListener implements ITestListener {
 
     @Override
     public void onTestSuccess(ITestResult result) {
-        getExtentTest().pass("Test case is Pass");
-
+        if (result.getParameters().length > 0) {
+            getExtentTest().info("Test Data: "+ Arrays.asList(result.getParameters()));
+        }
+        getExtentTest().info(MarkupHelper.createCodeBlock(ApiLogger.writer.toString()));
     }
 
     @Override
     public void onTestFailure(ITestResult result) {
-        getExtentTest().fail("Test case is Failed");
         getExtentTest().log(Status.FAIL,result.getThrowable());
-        String base64ScreenshotImage=SeleniumUtils.takeScreenShotAsBase64(DriverFactory.getDriver());
-        getExtentTest().info("Click below base64Img icon to view Screenshot");
-        getExtentTest().fail(MediaEntityBuilder.createScreenCaptureFromBase64String(base64ScreenshotImage).build());
+
+        if(Objects.nonNull(DriverFactory.getDriver())){
+            String base64ScreenshotImage=SeleniumUtils.takeScreenShotAsBase64(DriverFactory.getDriver());
+            getExtentTest().info("Click below base64Img icon to view Screenshot");
+            getExtentTest().fail(MediaEntityBuilder.createScreenCaptureFromBase64String(base64ScreenshotImage).build());
+        }
+        getExtentTest().info(MarkupHelper.createCodeBlock(ApiLogger.writer.toString()));
+
     }
 
     @Override
