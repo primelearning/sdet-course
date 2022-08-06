@@ -40,7 +40,11 @@ public class ExtentListener implements ITestListener {
         if (result.getParameters().length > 0) {
             getExtentTest().info("Test Data: "+ Arrays.asList(result.getParameters()));
         }
-        getExtentTest().info(MarkupHelper.createCodeBlock(ApiLogger.writer.toString()));
+        try{
+            getExtentTest().info(MarkupHelper.createCodeBlock(ApiLogger.writer.toString()));
+        }catch (NullPointerException e){
+            LOG.info("No Logs created for API test in this Test run. Returned Null, Can be Ignored.");
+        }
     }
 
     @Override
@@ -52,7 +56,12 @@ public class ExtentListener implements ITestListener {
             getExtentTest().info("Click below base64Img icon to view Screenshot");
             getExtentTest().fail(MediaEntityBuilder.createScreenCaptureFromBase64String(base64ScreenshotImage).build());
         }
-        getExtentTest().info(MarkupHelper.createCodeBlock(ApiLogger.writer.toString()));
+        try{
+            getExtentTest().info(MarkupHelper.createCodeBlock(ApiLogger.writer.toString()));
+        }catch (NullPointerException e){
+            LOG.info("No Logs created for API test in this Test run. Returned Null, Can be Ignored.");
+        }
+
 
     }
 
