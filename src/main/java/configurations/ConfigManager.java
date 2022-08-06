@@ -1,5 +1,8 @@
 package configurations;
 
+import io.restassured.RestAssured;
+import io.restassured.filter.log.RequestLoggingFilter;
+import io.restassured.filter.log.ResponseLoggingFilter;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import utilities.ReadFiles;
@@ -23,6 +26,10 @@ public final class ConfigManager {
 
         getSystemVariables();
         setEnvProperties();
+
+        if(ConfigManager.FRAMEWORK_PROPERTIES.getProperty("REQUEST_RESPONSE_LOG").equals("true")){
+            RestAssured.filters(new RequestLoggingFilter(), new ResponseLoggingFilter());
+        }
     }
 
     private static void getSystemVariables(){

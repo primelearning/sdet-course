@@ -1,0 +1,11 @@
+{
+  "firstname": "Avishek",
+  "lastname": "Behera",
+  "totalprice": 222,
+  "depositpaid": "true",
+  "bookingdates": {
+    "checkin": "{{checkin}}",
+    "checkout": "{{checkout}}"
+  },
+  "additionalneeds": 222
+}

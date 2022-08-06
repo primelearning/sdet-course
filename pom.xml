@@ -11,6 +11,7 @@
     <properties>
         <maven.compiler.source>11</maven.compiler.source>
         <maven.compiler.target>11</maven.compiler.target>
+        <TEST_SUITE>sanity</TEST_SUITE>
         <selenium-version>4.3.0</selenium-version>
         <testng-version>7.6.1</testng-version>
         <drivermanager-version>5.2.1</drivermanager-version>
@@ -19,6 +20,8 @@
         <log4j-version>2.18.0</log4j-version>
         <lombok>1.18.24</lombok>
         <faker>1.0.2</faker>
+        <rest-assured>5.1.1</rest-assured>
+        <mongo.client.version>3.12.11</mongo.client.version>
     </properties>
 
     <build>
@@ -29,7 +32,7 @@
                 <version>${surefire.version}</version>
                 <configuration>
                     <suiteXmlFiles>
-                        <suiteXmlFile>sanity.xml</suiteXmlFile>
+                        <suiteXmlFile>${TEST_SUITE}.xml</suiteXmlFile>
                     </suiteXmlFiles>
                 </configuration>
             </plugin>
@@ -67,12 +70,22 @@
             <version>${lombok}</version>
             <scope>provided</scope>
         </dependency>
-        <!-- https://mvnrepository.com/artifact/com.github.javafaker/javafaker -->
         <dependency>
             <groupId>com.github.javafaker</groupId>
             <artifactId>javafaker</artifactId>
             <version>${faker}</version>
         </dependency>
+        <dependency>
+            <groupId>io.rest-assured</groupId>
+            <artifactId>rest-assured</artifactId>
+            <version>${rest-assured}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.mongodb</groupId>
+            <artifactId>mongo-java-driver</artifactId>
+            <version>${mongo.client.version}</version>
+        </dependency>
+
 
 
 
