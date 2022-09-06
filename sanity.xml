@@ -10,9 +10,9 @@
             </run>
         </groups>
         <classes>
-            <class name="functionaltest.LoginPageTest"/>
-            <class name="functionaltest.ProductPageTest"/>
-            <class name="functionaltest.CartPageTest"/>
+            <class name="uitests.LoginPageTest"/>
+            <class name="uitests.ProductPageTest"/>
+            <class name="uitests.CartPageTest"/>
         </classes>
     </test>
 </suite>
